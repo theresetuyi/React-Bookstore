@@ -1,70 +1,142 @@
-# Getting Started with Create React App
+# React Bookstore
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<a name="readme-top"></a>
 
-## Available Scripts
+<div align="center">
+  <br/>
+  <h3><b>Bookstore</b></h3>
+</div>
 
-In the project directory, you can run:
+<!-- TABLE OF CONTENTS -->
 
-### `npm start`
+# 📗 Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [📖 About the Project](#about-project)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo)
+- [👥 Author](#authors)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [📝 License](#license)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<!-- PROJECT DESCRIPTION -->
 
-### `npm test`
+# 📖 Bookstore <a name="about-project"></a>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+In this exercise, you are going to consolidate your knowledge about React, components, props, state, and hooks, by following a tutorial.
 
-### `npm run build`
+> <br> For future implementations, please go to the [Future Features](#future-features) section. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠 Built With <a name="built-with"></a>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Tech Stack <a name="tech-stack"></a>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="https://https://html5.org//">HTML 5</a></li>
+    <li><a href="https://www.w3.org/Style/CSS/Overview.en.html">CSS 3</a></li>
+    <li><a href="https://react.dev/">React.js</a></li>
+  </ul>
+</details>
+<details>
+  <summary>Server</summary>
+  <ul>
+    <li><a href="https://pages.github.com/">GitHub Pages</a></li>
+  </ul>
+</details>
 
-### `npm run eject`
+<!-- Features -->
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Key Features <a name="key-features"></a>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Basic setup**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<!-- LIVE DEMO -->
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🚀 Live Demo <a name="live-demo"></a>
 
-## Learn More
+- Live Demo Link very soon
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Prerequisites
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [HTML](https://www.w3.org/html/) + [CSS](https://www.w3.org/Style/CSS/Overview.en.html) + [JavaScript](https://www.javascript.com/) + [React.js](https://react.dev/)
+- Make sure you have **Node.js** installed. Check this by running:
+```hs
+node -v
+```
+If you have it, it will display the Node version you have, if not, go to [this website](https://nodejs.org/en) to download it. I recomend you get the "Recomended For Most Users" version.
+### Setup
 
-### Code Splitting
+- If you wish to work from this project by editing it's code:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```sh
+git clone https://github.com/theresetuyi/React-Bookstore.git
+```
 
-### Analyzing the Bundle Size
+### Install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+You may add linters to ensure adhering to best practices.
 
-### Making a Progressive Web App
+```sh
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Usage
+- To get  a review of the JavaScript code, run:
+```hs
+npx eslint "**/*.{js,jsx}"
+```
 
-### Advanced Configuration
+- To get a review of the CSS, run:
+```hs
+npx stylelint "**/*.{css,scss}"
+```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!-- AUTHORS -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Author <a name="authors"></a>
 
-### Deployment
+👤 **Therese Tuyisabe**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- GitHub: [@githubhandle](https://github.com/theresetuyi)
+- Twitter: [@twitterhandle](https://twitter.com/THERESETUYISAB2)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/therese-theddy-tuyisabe-249820203/)
 
-### `npm run build` fails to minify
+<!-- FUTURE FEATURES -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🔭 Future Features <a name="future-features"></a>
+
+- Full website.
+- Tests.
+
+<!-- CONTRIBUTING -->
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Please let me know if you find any issues in this repo's code!
+Feel free to check the [issues page](../../issues/).
+
+<!-- SUPPORT -->
+
+## ⭐️ Show your support <a name="support"></a>
+
+If you like my work on this project, please give me a star⭐️ on this repo. I would also love to read your comment let me know what you think!
+
+<!-- ACKNOWLEDGEMENTS -->
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+> Thanks to [Microverse](https://www.microverse.org/) 
+
+<!-- LICENSE -->
+
+## 📝 License <a name="license"></a>
+
+[MIT](https://mit-license.org/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
