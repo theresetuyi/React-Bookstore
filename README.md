@@ -60,7 +60,7 @@ In this exercise, you are going to consolidate your knowledge about React, compo
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- Live Demo Link very soon
+- Live Demo Link  soon
 
 ### Prerequisites
 
