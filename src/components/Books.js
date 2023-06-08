@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import Book from './Book';
 
 const Books = () => {
@@ -9,7 +8,7 @@ const Books = () => {
     event.preventDefault();
     const title = event.target.title.value;
     const author = event.target.author.value;
-    const newBook = { title, author, id: uuidv4() };
+    const newBook = { title, author };
     setBooks([...books, newBook]);
     event.target.reset();
   };
