@@ -1,27 +1,46 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { useDispatch, useSelector } from 'react-redux';
+import { addBook, removeBook } from '../redux/books/booksSlice';
+import Book from './Book';
 
-const NewBookForm = ({ handleAddBook }) => {
+function NewBookForm() {
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+  const books = useSelector((state) => state.books);
+  const dispatch = useDispatch();
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const title = event.target.title.value;
-    const author = event.target.author.value;
-    const newBook = { title, author };
-    handleAddBook(newBook);
-    event.target.reset();
+    const newBook = { title, author, id: uuidv4() };
+    dispatch(addBook(newBook));
+    setTitle('');
+    setAuthor('');
+  };
+
+  const handleRemove = (bookId) => {
+    dispatch(removeBook(bookId));
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="title" placeholder="Title" required />
-      <input type="text" name="author" placeholder="Author" required />
-      <button type="submit">Add Book</button>
-    </form>
+    <div>
+      <ul>
+        {books.map((book) => (
+          <Book
+            key={book.id}
+            title={book.title}
+            author={book.author}
+            onRemove={() => handleRemove(book.id)}
+          />
+        ))}
+      </ul>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="title" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} required />
+        <input type="text" name="author" placeholder="Author" value={author} onChange={(e) => setAuthor(e.target.value)} required />
+        <button type="submit">Add Book</button>
+      </form>
+    </div>
   );
-};
-
-NewBookForm.propTypes = {
-  handleAddBook: PropTypes.func.isRequired,
-};
+}
 
 export default NewBookForm;
