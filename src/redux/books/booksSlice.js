@@ -29,13 +29,8 @@ export const booksSlice = createSlice({
       // Add a book to the state
       state.push(action.payload);
     },
-    removeBook: (state, action) => {
-      // Remove a book from the state by id
-      const bookIndex = state.findIndex((book) => book.item_id === action.payload);
-      if (bookIndex !== -1) {
-        state.splice(bookIndex, 1);
-      }
-    },
+    // Remove a book from the state by id
+    removeBook: (state, action) => state.filter((book) => book.item_id !== action.payload),
   },
 });
 
