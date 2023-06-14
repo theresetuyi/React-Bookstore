@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
-  addBookAsync, removeBookAsync,
+  addBookAsync, removeBookAsync, fetchBooksAsync,
 } from '../redux/books/booksSlice';
 import Book from './Book';
 
