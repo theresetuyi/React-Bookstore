@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import {
   addBookAsync, removeBookAsync,
 } from '../redux/books/booksSlice';
@@ -9,8 +10,14 @@ import Book from './Book';
 function NewBookForm() {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
-  const books = useSelector((state) => state.books);
   const dispatch = useDispatch();
+  const books = useSelector((state) => state.books.books);
+  const status = useSelector((state) => state.books.status);
+  const error = useSelector((state) => state.books.error);
+
+  useEffect(() => {
+    dispatch(fetchBooksAsync());
+  }, [dispatch]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -23,6 +30,20 @@ function NewBookForm() {
   const handleRemove = (bookId) => {
     dispatch(removeBookAsync(bookId));
   };
+
+  if (status === 'loading') {
+    return <div>Loading...</div>;
+  }
+
+  if (status === 'failed') {
+    return (
+      <div>
+        Error:
+        {' '}
+        {error}
+      </div>
+    );
+  }
 
   return (
     <div>
