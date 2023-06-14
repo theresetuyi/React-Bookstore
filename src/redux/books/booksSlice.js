@@ -1,39 +1,58 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const initialState = [
-  {
-    item_id: 'item1',
-    title: 'The Great Gatsby',
-    author: 'John Smith',
-    category: 'Fiction',
-  },
-  {
-    item_id: 'item2',
-    title: 'Anna Karenina',
-    author: 'Leo Tolstoy',
-    category: 'Fiction',
-  },
-  {
-    item_id: 'item3',
-    title: 'The Selfish Gene',
-    author: 'Richard Dawkins',
-    category: 'Nonfiction',
-  },
-];
+import { fetchBooks, addBook, removeBook } from '../../AddApi/Api';
+
+const initialState = {
+  books: [],
+  status: 'idle',
+  error: null,
+};
+
+export const fetchBooksAsync = createAsyncThunk('books/fetchBooks', async () => {
+  const response = await fetchBooks();
+  return response;
+});
+
+export const addBookAsync = createAsyncThunk('books/addBook', async (book) => {
+  const response = await addBook(book);
+  return response;
+});
+
+export const removeBookAsync = createAsyncThunk('books/removeBook', async (bookId) => {
+  await removeBook(bookId);
+  return bookId;
+});
 
 export const booksSlice = createSlice({
   name: 'books',
   initialState,
   reducers: {
-    addBook: (state, action) => {
-      // Add a book to the state
-      state.push(action.payload);
+    addBookAction: (state, action) => {
+      state.books.push(action.payload);
     },
-    // Remove a book from the state by id
-    removeBook: (state, action) => state.filter((book) => book.item_id !== action.payload),
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchBooksAsync.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(fetchBooksAsync.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.books = action.payload;
+      })
+      .addCase(fetchBooksAsync.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      })
+      .addCase(addBookAsync.fulfilled, (state, action) => {
+        state.books.push(action.payload);
+      })
+      .addCase(removeBookAsync.fulfilled, (state, action) => {
+        state.books = state.books.filter((book) => book.id !== action.payload);
+      });
   },
 });
 
-export const { addBook, removeBook } = booksSlice.actions;
+export const { addBookAction } = booksSlice.actions;
 
 export default booksSlice.reducer;
