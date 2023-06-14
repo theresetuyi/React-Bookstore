@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch, useSelector } from 'react-redux';
-import { addBook, removeBook } from '../redux/books/booksSlice';
+import {
+  addBookAsync, removeBookAsync,
+} from '../redux/books/booksSlice';
 import Book from './Book';
 
 function NewBookForm() {
@@ -13,13 +15,13 @@ function NewBookForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const newBook = { title, author, id: uuidv4() };
-    dispatch(addBook(newBook));
+    dispatch(addBookAsync(newBook));
     setTitle('');
     setAuthor('');
   };
 
   const handleRemove = (bookId) => {
-    dispatch(removeBook(bookId));
+    dispatch(removeBookAsync(bookId));
   };
 
   return (

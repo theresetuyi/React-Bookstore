@@ -1,4 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { fetchBooks, addBook, removeBook } from '../../BooksApi/BooksApi';
 
 const initialState = [
   {
@@ -20,6 +21,20 @@ const initialState = [
     category: 'Nonfiction',
   },
 ];
+export const fetchBooksAsync = createAsyncThunk('books/fetchBooks', async () => {
+  const response = await fetchBooks();
+  // console.log(response, 'this is api data');
+  return response;
+});
+export const addBookAsync = createAsyncThunk('books/addBook', async (book) => {
+  const response = await addBook(book);
+  return response;
+});
+
+export const removeBookAsync = createAsyncThunk('books/removeBook', async (bookId) => {
+  await removeBook(bookId);
+  return bookId;
+});
 
 export const booksSlice = createSlice({
   name: 'books',
@@ -34,6 +49,6 @@ export const booksSlice = createSlice({
   },
 });
 
-export const { addBook, removeBook } = booksSlice.actions;
+export const { addBookAction, removeBookAction } = booksSlice.actions;
 
 export default booksSlice.reducer;
