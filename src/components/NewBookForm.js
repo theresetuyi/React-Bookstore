@@ -27,6 +27,7 @@ function NewBookForm() {
       <ul>
         {books.map((book) => (
           <Book
+            itemId={book.id}
             key={book.id}
             title={book.title}
             author={book.author}

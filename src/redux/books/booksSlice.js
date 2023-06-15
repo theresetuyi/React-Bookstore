@@ -23,7 +23,6 @@ const initialState = [
 ];
 export const fetchBooksAsync = createAsyncThunk('books/fetchBooks', async () => {
   const response = await fetchBooks();
-  // console.log(response, 'this is api data');
   return response;
 });
 export const addBookAsync = createAsyncThunk('books/addBook', async (book) => {

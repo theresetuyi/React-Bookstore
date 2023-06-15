@@ -10,8 +10,6 @@ function Book({ title, author, itemId }) {
       <p className="title">{title}</p>
       <p>{author}</p>
       <button type="button" onClick={() => dispatch(removeBookAsync(itemId))}>Remove</button>
-      {' '}
-      {/* Update payload */}
     </div>
   );
 }
