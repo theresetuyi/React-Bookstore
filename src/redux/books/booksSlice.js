@@ -1,5 +1,6 @@
+import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchBooks, addBook, removeBook } from '../../BooksApi/BooksApi';
+import { fetchBookApi, addBook, removeBook } from '../../BooksApi/BooksApi';
 
 const initialState = [
   {
@@ -21,8 +22,15 @@ const initialState = [
     category: 'Nonfiction',
   },
 ];
+export const getbooks = createAsyncThunk(
+  'books/getbooks',
+  async () => {
+    const response = await axios.get('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Oc9abMsHOhG37sSkzGFr/books/');
+    return response.data;
+  },
+);
 export const fetchBooksAsync = createAsyncThunk('books/fetchBooks', async () => {
-  const response = await fetchBooks();
+  const response = await fetchBookApi();
   return response;
 });
 export const addBookAsync = createAsyncThunk('books/addBook', async (book) => {

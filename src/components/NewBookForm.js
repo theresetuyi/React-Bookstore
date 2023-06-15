@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addBookAsync, removeBookAsync } from '../redux/books/booksSlice';
+import { fetchBooksAsync, addBookAsync, removeBookAsync } from '../redux/books/booksSlice';
 import Book from './Book';
 
 function NewBookForm() {
@@ -10,9 +9,13 @@ function NewBookForm() {
   const books = useSelector((state) => state.books);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(fetchBooksAsync());
+  }, [dispatch]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const newBook = { title, author, id: uuidv4() };
+    const newBook = { title, author };
     dispatch(addBookAsync(newBook));
     setTitle('');
     setAuthor('');
@@ -27,11 +30,11 @@ function NewBookForm() {
       <ul>
         {books.map((book) => (
           <Book
-            itemId={book.id}
-            key={book.id}
+            itemId={book.item_id}
+            key={book.item_id}
             title={book.title}
             author={book.author}
-            onRemove={() => handleRemove(book.id)}
+            onRemove={() => handleRemove(book.item_id)}
           />
         ))}
       </ul>
