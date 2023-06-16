@@ -1,25 +1,14 @@
-import React, { useState } from 'react';
-import Book from './Book';
-import NewBookForm from './NewBookForm';
+import { React } from 'react';
+import BooksList from './BookList';
 
-const Books = () => {
-  const [books, setBooks] = useState([]);
-
-  const handleAddBook = (newBook) => {
-    setBooks([...books, newBook]);
-  };
-
-  return (
-    <div>
-      <h2>Add Books</h2>
-      <ul>
-        {books.map((book) => (
-          <Book key={book.id} title={book.title} author={book.author} />
-        ))}
-      </ul>
-      <NewBookForm handleAddBook={handleAddBook} />
-    </div>
-  );
-};
+const Books = () => (
+  <>
+    {' '}
+    <main className="bookContainer">
+      <BooksList />
+    </main>
+    {' '}
+  </>
+);
 
 export default Books;
