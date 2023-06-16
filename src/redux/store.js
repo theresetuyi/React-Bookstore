@@ -1,14 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import thunkMiddleware from 'redux-thunk';
-import checkReducer from './categories/categoriesSlice';
 import booksReducer from './books/booksSlice';
+import categoriesReducer from './categories/categoriesSlice';
 
 const store = configureStore({
   reducer: {
-    checkStatus: checkReducer,
     books: booksReducer,
+    categories: categoriesReducer,
   },
-  middleware: [thunkMiddleware],
 });
 
 export default store;
