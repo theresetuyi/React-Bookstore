@@ -1,24 +1,49 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
-import Books from './components/Books';
-import Categories from './components/Categories';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { Provider, connect } from 'react-redux';
+import Categories from './component/categories/Categories';
+import store from './redux/store';
+import Navbar from './component/Navbar';
+import AddBook from './component/AddBook';
+import BookList from './component/BookList';
+import Progress from './component/Progress';
+
+const routes = [
+  {
+    path: '/',
+    name: 'Books',
+    element: <BookList />,
+  },
+  {
+    path: '/categories',
+    name: 'categories',
+    element: <Categories />,
+  },
+];
 
 const App = () => (
-  <div className="App">
-    <div className="top">
-      <h1 className="title">Bookstore</h1>
-      <nav className="nav">
-        <Link className="a" to="/">Books</Link>
-        <Link className="a" to="/Categories">Categories</Link>
-      </nav>
-    </div>
-    <section className="section">
-      <Routes>
-        <Route path="/" element={<Books />} />
-        <Route path="Categories" element={<Categories />} />
-      </Routes>
-    </section>
-  </div>
+  <Provider store={store}>
+    <Router basename={process.env.PUBLIC_URL}>
+      <Navbar title="Bookstore CMS" routes={routes} />
+      <div className="container">
+        <ConnectedBookList />
+        <AddBook />
+        <Progress />
+        <Routes>
+          {routes.map(({ path, element }) => (
+            <Route path={path} element={element} key={path} />
+          ))}
+        </Routes>
+      </div>
+    </Router>
+  </Provider>
 );
+
+// Connect the BookList component to the Redux store
+const mapStateToProps = (state) => ({
+  books: state.books,
+});
+
+const ConnectedBookList = connect(mapStateToProps)(BookList);
 
 export default App;
