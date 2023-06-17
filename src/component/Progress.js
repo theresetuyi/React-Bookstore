@@ -16,7 +16,7 @@ Stat.propTypes = {
 const Progress = ({ progress }) => {
   if (!progress) {
     // Handle the case when progress is undefined
-    return null; // or render an alternative component or message
+    return null;
   }
 
   const { completed = '', currentChapter = '' } = progress;

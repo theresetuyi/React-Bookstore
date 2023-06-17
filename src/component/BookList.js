@@ -61,7 +61,6 @@ const Book = ({ book }) => {
             {author}
           </h6>
           {' '}
-          {/* Added the FontAwesome icon */}
           <ActionButtons id={id} />
         </div>
         <Progress progress={progress} />

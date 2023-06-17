@@ -11,7 +11,7 @@ import Progress from './component/Progress';
 const routes = [
   {
     path: '/',
-    name: 'book',
+    name: 'Books',
     element: <BookList />,
   },
   {
@@ -41,7 +41,7 @@ const App = () => (
 
 // Connect the BookList component to the Redux store
 const mapStateToProps = (state) => ({
-  books: state.books, // Assuming the books are stored in the 'books' property of the state
+  books: state.books,
 });
 
 const ConnectedBookList = connect(mapStateToProps)(BookList);

@@ -5,10 +5,6 @@
   padding: 0;
 }
 
-a {
-  color: inherit;
-}
-
 body {
   padding: 4%;
   background-color: #f5f6fa;
@@ -152,8 +148,8 @@ body {
 
 .book {
   background-color: white;
-  border-radius: 4px;
-  border: solid 1px #e8e8e8;
+  border-radius: 2px;
+  border: solid 25px #e8e8e8;
   padding: 2rem;
 }
 
@@ -213,13 +209,6 @@ body {
   transform: rotate(45deg);
 }
 
-.horizontal-divider {
-  height: 0.125rem;
-  background-color: #e8e8e8;
-  width: 100%;
-  margin: 2.5rem 0 1.813rem 0;
-}
-
 .percent-complete {
   font-family: "Montserrat", sans-serif;
   font-size: 2rem;
@@ -246,9 +235,9 @@ body {
   background-color: white;
 }
 
-/* a {
+a {
   text-decoration: none;
-} */
+}
 
 .nav-bar {
   padding: 24px 4%;
@@ -281,7 +270,8 @@ body {
   letter-spacing: 1.9px;
 }
 
-.active-link {
-  opacity: 1;
-  color: #121212;
+.nav-link.books-link {
+  opacity: 0.8;
+  font-weight: bold;
+  color: rgb(15, 9, 9);
 }

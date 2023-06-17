@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, NavLink } from 'react-router-dom';
+import IconButton from './IconButton';
 import '../index.css';
 
 const Navbar = ({ title, routes }) => (
@@ -9,7 +10,14 @@ const Navbar = ({ title, routes }) => (
     <ul className="nav-links">
       {routes.map(({ name, path }) => (
         <li key={path}>
-          <NavLink className="nav-link" activeClassName="active-link" exact to={path}>{name}</NavLink>
+          <NavLink
+            className={`nav-link ${name === 'Books' ? 'books-link' : ''}`}
+            activeClassName="active-link"
+            exact
+            to={path}
+          >
+            {name}
+          </NavLink>
         </li>
       ))}
     </ul>
@@ -25,16 +33,6 @@ Navbar.propTypes = {
       name: PropTypes.string.isRequired,
     }),
   ).isRequired,
-};
-
-const IconButton = ({ name }) => (
-  <button className="icon-button" type="button">
-    <span className="material-icons primary-color">{name}</span>
-  </button>
-);
-
-IconButton.propTypes = {
-  name: PropTypes.string.isRequired,
 };
 
 export default Navbar;
